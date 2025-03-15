@@ -1,0 +1,84 @@
+{
+  "name": "@steempro/dsteem",
+  "version": "1.0.0",
+  "description": "Steem blockchain RPC client library",
+  "author": "faisalamin",
+  "license": "BSD-3-Clause-No-Military-License",
+  "main": "./lib/index-node",
+  "typings": "./lib/index",
+  "browser": {
+    "./lib/index-node": "./dist/dsteem.js",
+    "./src/index-node": "./dist/dsteem.js",
+    "./src/version": "./lib/version.js"
+  },
+  "files": [
+    "dist/*",
+    "lib/*"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/faisalamin9696/dsteem"
+  },
+  "scripts": {
+    "build": "tsc",
+    "prepublish": "make all"
+  },
+  "keywords": [
+    "blockchain",
+    "client",
+    "rpc",
+    "steem",
+    "dsteem"
+  ],
+  "dependencies": {
+    "@ecency/bytebuffer": "^6.0.0",
+    "bigi": "^1.4.2",
+    "bs58": "^4.0.1",
+    "core-js": "^3.6.4",
+    "cross-fetch": "^3.0.4",
+    "ecurve": "^1.0.6",
+    "https": "^1.0.0",
+    "jsbi": "^3.1.4",
+    "node-fetch": "^2.6.0",
+    "ripemd160": "^2.0.2",
+    "secp256k1": "^3.8.0",
+    "verror": "^1.10.0",
+    "whatwg-fetch": "^3.0.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.1.6",
+    "@babel/preset-env": "^7.1.6",
+    "@types/bytebuffer": "^5.0.33",
+    "@types/mocha": "^5.2.5",
+    "@types/node": "^13.9.2",
+    "@types/verror": "^1.10.3",
+    "@typescript-eslint/eslint-plugin": "^2.24.0",
+    "@typescript-eslint/eslint-plugin-tslint": "^2.24.0",
+    "@typescript-eslint/parser": "^2.24.0",
+    "babelify": "^10.0.0",
+    "browserify": "^16.2.3",
+    "coveralls": "^3.0.11",
+    "derequire": "^2.0.6",
+    "dts-generator": "^2.1.0",
+    "encoding": "^0.1.12",
+    "eslint": "^6.8.0",
+    "eslint-plugin-import": "^2.20.1",
+    "eslint-plugin-prefer-arrow": "^1.1.7",
+    "karma": "^4.4.1",
+    "karma-browserify": "^5.1.1",
+    "karma-mocha": "^1.3.0",
+    "karma-mocha-reporter": "^2.2.5",
+    "karma-sauce-launcher": "^1.2.0",
+    "lorem-ipsum": "^1.0.6",
+    "mocha": "^7.1.1",
+    "nyc": "^15.0.0",
+    "regenerator-runtime": "^0.13.1",
+    "terser": "^5.31.0",
+    "ts-node": "^8.7.0",
+    "tsify": "^4.0.0",
+    "tslint": "^5.11.0",
+    "typedoc": "^0.17.1",
+    "typescript": "^3.8.3",
+    "watchify": "^3.11.0"
+  }
+}
