@@ -33,7 +33,7 @@
  * in the design, construction, operation or maintenance of any military facility.
  */
 
-import fetch from 'cross-fetch'
+import fetch from "cross-fetch";
 import { EventEmitter } from "events";
 import { PassThrough } from "stream";
 
@@ -45,9 +45,6 @@ const timeoutErrors = [
   "database lock",
   "CERT_HAS_EXPIRED",
   "EHOSTUNREACH",
-  "ECONNRESET",
-  "ERR_TLS_CERT_ALTNAME_INVALID",
-  "EAI_AGAIN",
 ];
 
 /**
@@ -95,6 +92,7 @@ export function iteratorStream<T>(
     });
   return stream;
 }
+
 /**
  * Return a deep copy of a JSON-serializable object.
  */
@@ -105,7 +103,6 @@ export function copy<T>(object: T): T {
 /**
  * Fetch API wrapper that retries until timeout is reached.
  */
-
 export async function retryingFetch(
   currentAddress: string,
   allAddresses: string | string[],
@@ -119,6 +116,7 @@ export async function retryingFetch(
   let start = Date.now();
   let tries = 0;
   let round = 0;
+
   do {
     try {
       if (fetchTimeout) {
@@ -203,8 +201,8 @@ const failover = (
 };
 
 // Hack to be able to generate a valid witness_set_properties op
-// Can hopefully be removed when steemd's JSON representation is fixed
-import * as ByteBuffer from "@ecency/bytebuffer";
+// Can hopefully be removed when hived's JSON representation is fixed
+import * as ByteBuffer from "bytebuffer";
 import { Asset, PriceType } from "./chain/asset";
 import { WitnessSetPropertiesOperation } from "./chain/operation";
 import { Serializer, Types } from "./chain/serializer";
@@ -220,8 +218,7 @@ export interface WitnessProps {
   sbd_interest_rate?: number; // uint16_t
   url?: string;
 }
-
-const serialize = (serializer: Serializer, data: any) => {
+function serialize(serializer: Serializer, data: any) {
   const buffer = new ByteBuffer(
     ByteBuffer.DEFAULT_CAPACITY,
     ByteBuffer.LITTLE_ENDIAN
@@ -231,12 +228,11 @@ const serialize = (serializer: Serializer, data: any) => {
   // `props` values must be hex
   return buffer.toString("hex");
   // return Buffer.from(buffer.toBuffer());
-};
-
-export const buildWitnessUpdateOp = (
+}
+export function buildWitnessUpdateOp(
   owner: string,
   props: WitnessProps
-): WitnessSetPropertiesOperation => {
+): WitnessSetPropertiesOperation {
   const data: WitnessSetPropertiesOperation[1] = {
     extensions: [],
     owner,
@@ -273,7 +269,7 @@ export const buildWitnessUpdateOp = (
   }
   data.props.sort((a, b) => a[0].localeCompare(b[0]));
   return ["witness_set_properties", data];
-};
+}
 
 const JSBI = require("jsbi");
 export const operationOrders = {

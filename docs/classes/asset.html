@@ -105,6 +105,7 @@
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="asset.html#divide" class="tsd-kind-icon">divide</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="asset.html#getprecision" class="tsd-kind-icon">get<wbr>Precision</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="asset.html#multiply" class="tsd-kind-icon">multiply</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="asset.html#steem_symbols" class="tsd-kind-icon">steem_<wbr>symbols</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="asset.html#subtract" class="tsd-kind-icon">subtract</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="asset.html#tojson" class="tsd-kind-icon">toJSON</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="asset.html#tostring" class="tsd-kind-icon">to<wbr>String</a></li>
@@ -129,7 +130,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/faisalamin9696/dsteem/blob/master/src/chain/asset.ts#L52">chain/asset.ts:52</a></li>
+									<li>Defined in chain/asset.ts:60</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -154,7 +155,7 @@
 					<div class="tsd-signature tsd-kind-icon">amount<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/faisalamin9696/dsteem/blob/master/src/chain/asset.ts#L54">chain/asset.ts:54</a></li>
+							<li>Defined in chain/asset.ts:62</li>
 						</ul>
 					</aside>
 				</section>
@@ -164,7 +165,7 @@
 					<div class="tsd-signature tsd-kind-icon">symbol<span class="tsd-signature-symbol">:</span> <a href="../globals.html#assetsymbol" class="tsd-signature-type">AssetSymbol</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/faisalamin9696/dsteem/blob/master/src/chain/asset.ts#L55">chain/asset.ts:55</a></li>
+							<li>Defined in chain/asset.ts:63</li>
 						</ul>
 					</aside>
 				</section>
@@ -181,7 +182,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/faisalamin9696/dsteem/blob/master/src/chain/asset.ts#L152">chain/asset.ts:152</a></li>
+									<li>Defined in chain/asset.ts:176</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -209,7 +210,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/faisalamin9696/dsteem/blob/master/src/chain/asset.ts#L185">chain/asset.ts:185</a></li>
+									<li>Defined in chain/asset.ts:209</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -237,7 +238,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/faisalamin9696/dsteem/blob/master/src/chain/asset.ts#L125">chain/asset.ts:125</a></li>
+									<li>Defined in chain/asset.ts:137</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -259,7 +260,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/faisalamin9696/dsteem/blob/master/src/chain/asset.ts#L173">chain/asset.ts:173</a></li>
+									<li>Defined in chain/asset.ts:197</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -278,6 +279,29 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="steem_symbols" class="tsd-anchor"></a>
+					<h3>steem_<wbr>symbols</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">steem_<wbr>symbols<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="asset.html" class="tsd-signature-type">Asset</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in chain/asset.ts:155</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>returns a representation of this asset using only STEEM SBD for
+									legacy purposes</p>
+								</div>
+							</div>
+							<h4 class="tsd-returns-title">Returns <a href="asset.html" class="tsd-signature-type">Asset</a></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="subtract" class="tsd-anchor"></a>
 					<h3>subtract</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
@@ -287,7 +311,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/faisalamin9696/dsteem/blob/master/src/chain/asset.ts#L161">chain/asset.ts:161</a></li>
+									<li>Defined in chain/asset.ts:185</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -315,7 +339,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/faisalamin9696/dsteem/blob/master/src/chain/asset.ts#L197">chain/asset.ts:197</a></li>
+									<li>Defined in chain/asset.ts:221</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -337,12 +361,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/faisalamin9696/dsteem/blob/master/src/chain/asset.ts#L145">chain/asset.ts:145</a></li>
+									<li>Defined in chain/asset.ts:169</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Return a string representation of this asset, e.g. <code>42.000 HISTEEMVE</code>.</p>
+									<p>Return a string representation of this asset, e.g. <code>42.000 STEEM</code>.</p>
 								</div>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
@@ -359,7 +383,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/faisalamin9696/dsteem/blob/master/src/chain/asset.ts#L83">chain/asset.ts:83</a></li>
+									<li>Defined in chain/asset.ts:95</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -394,7 +418,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/faisalamin9696/dsteem/blob/master/src/chain/asset.ts#L61">chain/asset.ts:61</a></li>
+									<li>Defined in chain/asset.ts:69</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -425,7 +449,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/faisalamin9696/dsteem/blob/master/src/chain/asset.ts#L114">chain/asset.ts:114</a></li>
+									<li>Defined in chain/asset.ts:126</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -456,7 +480,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/faisalamin9696/dsteem/blob/master/src/chain/asset.ts#L103">chain/asset.ts:103</a></li>
+									<li>Defined in chain/asset.ts:115</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -514,6 +538,9 @@
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="asset.html#multiply" class="tsd-kind-icon">multiply</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="asset.html#steem_symbols" class="tsd-kind-icon">steem_<wbr>symbols</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="asset.html#subtract" class="tsd-kind-icon">subtract</a>

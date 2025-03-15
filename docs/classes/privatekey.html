@@ -91,20 +91,17 @@
 								<li class="tsd-kind-constructor tsd-parent-kind-class"><a href="privatekey.html#constructor" class="tsd-kind-icon">constructor</a></li>
 							</ul>
 						</section>
-						<section class="tsd-index-section ">
+						<section class="tsd-index-section tsd-is-private tsd-is-private-protected">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="privatekey.html#key" class="tsd-kind-icon">key</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="privatekey.html#secret" class="tsd-kind-icon">secret</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="privatekey.html#createpublic" class="tsd-kind-icon">create<wbr>Public</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="privatekey.html#get_shared_secret" class="tsd-kind-icon">get_<wbr>shared_<wbr>secret</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="privatekey.html#inspect" class="tsd-kind-icon">inspect</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="privatekey.html#multiply" class="tsd-kind-icon">multiply</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="privatekey.html#sign" class="tsd-kind-icon">sign</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="privatekey.html#tostring" class="tsd-kind-icon">to<wbr>String</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="privatekey.html#from" class="tsd-kind-icon">from</a></li>
@@ -128,7 +125,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/faisalamin9696/dsteem/blob/master/src/crypto.ts#L248">crypto.ts:248</a></li>
+									<li>Defined in crypto.ts:220</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -142,7 +139,7 @@
 					</ul>
 				</section>
 			</section>
-			<section class="tsd-panel-group tsd-member-group ">
+			<section class="tsd-panel-group tsd-member-group tsd-is-private tsd-is-private-protected">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
 					<a name="key" class="tsd-anchor"></a>
@@ -150,17 +147,7 @@
 					<div class="tsd-signature tsd-kind-icon">key<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Buffer</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/faisalamin9696/dsteem/blob/master/src/crypto.ts#L250">crypto.ts:250</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
-					<a name="secret" class="tsd-anchor"></a>
-					<h3>secret</h3>
-					<div class="tsd-signature tsd-kind-icon">secret<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Buffer</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/faisalamin9696/dsteem/blob/master/src/crypto.ts#L248">crypto.ts:248</a></li>
+							<li>Defined in crypto.ts:221</li>
 						</ul>
 					</aside>
 				</section>
@@ -177,7 +164,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/faisalamin9696/dsteem/blob/master/src/crypto.ts#L314">crypto.ts:314</a></li>
+									<li>Defined in crypto.ts:281</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -196,34 +183,6 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="get_shared_secret" class="tsd-anchor"></a>
-					<h3>get_<wbr>shared_<wbr>secret</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">get_<wbr>shared_<wbr>secret<span class="tsd-signature-symbol">(</span>public_key<span class="tsd-signature-symbol">: </span><a href="publickey.html" class="tsd-signature-type">PublicKey</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Buffer</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/faisalamin9696/dsteem/blob/master/src/crypto.ts#L337">crypto.ts:337</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Get shared secret for memo cryptography</p>
-								</div>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>public_key: <a href="publickey.html" class="tsd-signature-type">PublicKey</a></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Buffer</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="inspect" class="tsd-anchor"></a>
 					<h3>inspect</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
@@ -233,7 +192,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/faisalamin9696/dsteem/blob/master/src/crypto.ts#L329">crypto.ts:329</a></li>
+									<li>Defined in crypto.ts:296</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -247,29 +206,6 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="multiply" class="tsd-anchor"></a>
-					<h3>multiply</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">multiply<span class="tsd-signature-symbol">(</span>pub<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Buffer</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/faisalamin9696/dsteem/blob/master/src/crypto.ts#L291">crypto.ts:291</a></li>
-								</ul>
-							</aside>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>pub: <span class="tsd-signature-type">any</span></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Buffer</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="sign" class="tsd-anchor"></a>
 					<h3>sign</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
@@ -279,7 +215,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/faisalamin9696/dsteem/blob/master/src/crypto.ts#L299">crypto.ts:299</a></li>
+									<li>Defined in crypto.ts:266</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -310,7 +246,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/faisalamin9696/dsteem/blob/master/src/crypto.ts#L321">crypto.ts:321</a></li>
+									<li>Defined in crypto.ts:288</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -332,7 +268,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/faisalamin9696/dsteem/blob/master/src/crypto.ts#L257">crypto.ts:257</a></li>
+									<li>Defined in crypto.ts:228</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -360,7 +296,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/faisalamin9696/dsteem/blob/master/src/crypto.ts#L282">crypto.ts:282</a></li>
+									<li>Defined in crypto.ts:253</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -394,7 +330,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/faisalamin9696/dsteem/blob/master/src/crypto.ts#L275">crypto.ts:275</a></li>
+									<li>Defined in crypto.ts:246</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -422,7 +358,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/faisalamin9696/dsteem/blob/master/src/crypto.ts#L268">crypto.ts:268</a></li>
+									<li>Defined in crypto.ts:239</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -463,20 +399,11 @@
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
 								<a href="privatekey.html#key" class="tsd-kind-icon">key</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class">
-								<a href="privatekey.html#secret" class="tsd-kind-icon">secret</a>
-							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="privatekey.html#createpublic" class="tsd-kind-icon">create<wbr>Public</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="privatekey.html#get_shared_secret" class="tsd-kind-icon">get_<wbr>shared_<wbr>secret</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="privatekey.html#inspect" class="tsd-kind-icon">inspect</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="privatekey.html#multiply" class="tsd-kind-icon">multiply</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="privatekey.html#sign" class="tsd-kind-icon">sign</a>

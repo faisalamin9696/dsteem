@@ -34,6 +34,7 @@
  */
 
 import * as assert from "assert";
+import * as ByteBuffer from "bytebuffer";
 
 export interface SMTAsset {
   amount: string | number;
@@ -44,7 +45,14 @@ export interface SMTAsset {
 /**
  * Asset symbol string.
  */
-export type AssetSymbol = "VESTS" | "TESTS" | "TBD" | "STEEM" | "SBD";
+export type AssetSymbol =
+  | "STEEM"
+  | "VESTS"
+  | "SBD"
+  | "TESTS"
+  | "TBD"
+  | "STEEM"
+  | "SBD";
 
 /**
  * Class representing a steem asset, e.g. `1.000 STEEM` or `12.112233 VESTS`.
@@ -60,7 +68,11 @@ export class Asset {
    */
   public static fromString(string: string, expectedSymbol?: AssetSymbol) {
     const [amountString, symbol] = string.split(" ");
-    if (!["VESTS", "TESTS", "TBD", "SBD", "STEEM"].includes(symbol)) {
+    if (
+      !["STEEM", "VESTS", "SBD", "TESTS", "TBD", "SBD", "STEEM"].includes(
+        symbol
+      )
+    ) {
       throw new Error(`Invalid asset symbol: ${symbol}`);
     }
     if (expectedSymbol && symbol !== expectedSymbol) {
@@ -126,6 +138,8 @@ export class Asset {
     switch (this.symbol) {
       case "TESTS":
       case "TBD":
+      case "STEEM":
+      case "SBD":
       case "SBD":
       case "STEEM":
         return 3;
@@ -138,9 +152,19 @@ export class Asset {
    * returns a representation of this asset using only STEEM SBD for
    * legacy purposes
    */
+  public steem_symbols(): Asset {
+    switch (this.symbol) {
+      case "STEEM":
+        return Asset.from(this.amount, "STEEM");
+      case "SBD":
+        return Asset.from(this.amount, "SBD");
+      default:
+        return this;
+    }
+  }
 
   /**
-   * Return a string representation of this asset, e.g. `42.000 HISTEEMVE`.
+   * Return a string representation of this asset, e.g. `42.000 STEEM`.
    */
   public toString(): string {
     return `${this.amount.toFixed(this.getPrecision())} ${this.symbol}`;

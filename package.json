@@ -1,9 +1,9 @@
 {
   "name": "@steempro/dsteem",
   "version": "1.0.0",
-  "description": "Steem blockchain RPC client library",
-  "author": "faisalamin",
-  "license": "BSD-3-Clause-No-Military-License",
+  "description": "Steem blockchain RPC client library for UPVU Web",
+  "author": "source:Johan Nordberg modify:upvu",
+  "license": "BSD-3-Clause",
   "main": "./lib/index-node",
   "typings": "./lib/index",
   "browser": {
@@ -20,7 +20,8 @@
     "url": "https://github.com/faisalamin9696/dsteem"
   },
   "scripts": {
-    "build": "tsc",
+    "lint": "make lint",
+    "test": "make ci-test",
     "prepublish": "make all"
   },
   "keywords": [
@@ -31,12 +32,10 @@
     "dsteem"
   ],
   "dependencies": {
-    "@ecency/bytebuffer": "^6.0.0",
-    "bigi": "^1.4.2",
     "bs58": "^4.0.1",
+    "bytebuffer": "^5.0.1",
     "core-js": "^3.6.4",
     "cross-fetch": "^3.0.4",
-    "ecurve": "^1.0.6",
     "https": "^1.0.0",
     "jsbi": "^3.1.4",
     "node-fetch": "^2.6.0",
@@ -73,12 +72,12 @@
     "mocha": "^7.1.1",
     "nyc": "^15.0.0",
     "regenerator-runtime": "^0.13.1",
-    "terser": "^5.31.0",
     "ts-node": "^8.7.0",
     "tsify": "^4.0.0",
     "tslint": "^5.11.0",
     "typedoc": "^0.17.1",
     "typescript": "^3.8.3",
+    "uglify-js": "^3.4.9",
     "watchify": "^3.11.0"
   }
 }

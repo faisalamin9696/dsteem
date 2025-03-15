@@ -1,3 +1,4 @@
+
 SHELL := /bin/bash
 PATH  := ./node_modules/.bin:$(PATH)
 
@@ -22,7 +23,7 @@ dist/%.js: lib
 		--standalone dsteem --plugin tsify \
 		--transform [ babelify --extensions .ts ] \
 		| derequire > $@
-	terser $@ \
+	uglifyjs $@ \
 		--source-map "content=inline,url=$(notdir $@).map,filename=$@.map" \
 		--compress "dead_code,collapse_vars,reduce_vars,keep_infinity,drop_console,passes=2" \
 		--output $@ || rm $@
@@ -40,7 +41,29 @@ bundle: dist/dsteem.js.gz dist/dsteem.d.ts
 
 .PHONY: coverage
 coverage: node_modules
-	nyc -r html -r text -e .ts -i ts-node/register mocha --exit --reporter nyan --require ts-node/register
+	nyc -r html -r text -e .ts -i ts-node/register mocha --exit --reporter nyan --require ts-node/register test/*.ts
+
+.PHONY: test
+test: node_modules
+	mocha --exit --require ts-node/register -r test/_node.js test/*.ts --grep '$(grep)'
+
+.PHONY: ci-test
+ci-test: node_modules
+	eslint -c .eslintrc.json src/**/*.ts
+	nyc -r lcov -e .ts -i ts-node/register mocha --exit --reporter tap --require ts-node/register test/*.ts
+
+.PHONY: browser-test
+browser-test: dist/dsteem.js
+	BUILD_NUMBER="$$(git rev-parse --short HEAD)-$$(date +%s)" \
+		karma start test/_karma-sauce.js
+
+.PHONY: browser-test-local
+browser-test-local: dist/dsteem.js
+	karma start test/_karma.js
+
+.PHONY: lint
+lint: node_modules
+	tslint -p tsconfig.json -c tslint.json -t stylish --fix
 
 node_modules:
 	yarn install --non-interactive --frozen-lockfile
@@ -48,7 +71,6 @@ node_modules:
 docs: $(SRC_FILES) node_modules
 	typedoc --gitRevision master --target ES6 --mode file --out docs src
 	find docs -name "*.html" | xargs perl -i -pe's~$(shell pwd)~.~g'
-	echo "Served at <https://openhive-network.github.io/dsteem>" > docs/README.md
 	touch docs
 
 .PHONY: clean

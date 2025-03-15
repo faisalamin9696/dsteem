@@ -32,7 +32,7 @@
  * You acknowledge that this software is not designed, licensed or intended for use
  * in the design, construction, operation or maintenance of any military facility.
  */
-
+// success!!!! fork 2022.12.01
 import * as assert from "assert";
 import { VError } from "verror";
 import packageVersion from "./version";
@@ -43,6 +43,7 @@ import { DatabaseAPI } from "./helpers/database";
 import { HivemindAPI } from "./helpers/hivemind";
 import { AccountByKeyAPI } from "./helpers/key";
 import { RCAPI } from "./helpers/rc";
+import { TransactionStatusAPI } from "./helpers/transaction";
 import { copy, retryingFetch, waitForEvent } from "./utils";
 
 /**
@@ -120,7 +121,7 @@ export interface ClientOptions {
   /**
    * Steem chain id. Defaults to main steem network:
    * need the new id?
-   * `0000000000000000000000000000000000000000000000000000000000000000`
+   * `beeab0de00000000000000000000000000000000000000000000000000000000`
    *
    */
   chainId?: string;
@@ -215,6 +216,11 @@ export class Client {
   public readonly keys: AccountByKeyAPI;
 
   /**
+   * Transaction status API helper.
+   */
+  public readonly transaction: TransactionStatusAPI;
+
+  /**
    * Chain ID for current network.
    */
   public readonly chainId: Buffer;
@@ -235,7 +241,7 @@ export class Client {
 
   /**
    * @param address The address to the Steem RPC server,
-   * e.g. `https://api.steemit.com`. or [`https://api.steemit.com`, `https://another.api.com`]
+   * e.g. `https://api.upvu.org`. or [`https://api.steemit.com`, `https://another.api.com`]
    * @param options Client options.
    */
   constructor(address: string | string[], options: ClientOptions = {}) {
@@ -266,6 +272,7 @@ export class Client {
     this.rc = new RCAPI(this);
     this.hivemind = new HivemindAPI(this);
     this.keys = new AccountByKeyAPI(this);
+    this.transaction = new TransactionStatusAPI(this);
   }
 
   /**
@@ -281,7 +288,7 @@ export class Client {
     opts.addressPrefix = "TST";
     opts.chainId =
       "18dcf0a285365fc58b71f18b3d3fec954aa0c141c44e4e5cb4cf777b9eab274e";
-    return new Client("https://testnet.opensteem.network", opts);
+    return new Client("https://testnet.openhive.network", opts);
   }
 
   /**
@@ -298,10 +305,10 @@ export class Client {
     params: any = []
   ): Promise<any> {
     const request: RPCCall = {
-      id: "0",
+      id: 0,
       jsonrpc: "2.0",
-      method: "call",
-      params: [api, method, params],
+      method: api + "." + method,
+      params,
     };
     const body = JSON.stringify(request, (key, value) => {
       // encode Buffers as hex strings instead of an array of bytes
@@ -313,6 +320,10 @@ export class Client {
     const opts: any = {
       body,
       cache: "no-cache",
+      headers: {
+        Accept: "application/json, text/plain, */*",
+        "Content-Type": "application/json",
+      },
       method: "POST",
       mode: "cors",
     };
@@ -389,14 +400,12 @@ export class Client {
           message += " " + unformattedData.join(" ");
         }
       }
-      // unhandledPromiseRejection RPCError: unable to acquire database lock
       throw new VError({ info: data, name: "RPCError" }, message);
-      console.error("RPCError:", message);
-      // process.exit(1);
     }
     assert.equal(response.id, request.id, "got invalid response id");
     return response.result;
   }
+
   public updateOperations(rebrandedApi) {
     // tslint:disable-next-line: no-console
     console.log(

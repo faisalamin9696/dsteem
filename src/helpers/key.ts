@@ -1,5 +1,6 @@
 /**
  * @file Account by key API helpers.
+ * @author Bartłomiej (@engrave) Górnicki
  */
 
 import {PublicKey} from '../crypto'

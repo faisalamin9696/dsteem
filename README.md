@@ -50,11 +50,6 @@ Make sure to set the version you want when including from the cdn, you can also 
   var client = new dsteem.Client([
     "https://api.steemit.com",
     "https://api.steemyy.com",
-    "https://rpc.amarbangla.net",
-    "https://steemapi.boylikegirl.club",
-    "https://api.steem-fanbase.com",
-    "https://api.steemitdev.com",
-    "https://api.steem.fans",
   ]);
   client.database
     .getDiscussions("trending", { tag: "writing", limit: 1 })
@@ -67,8 +62,6 @@ Make sure to set the version you want when including from the cdn, you can also 
 </script>
 ```
 
-See the [demo source](https://github.com/faisalamin9696/dsteem/tree/master/examples/comment-feed) for an example on how to setup a livereloading TypeScript pipeline with [wintersmith](https://github.com/jnordberg/wintersmith) and [browserify](https://github.com/substack/node-browserify).
-
 ### In node.js
 
 With TypeScript:
@@ -79,11 +72,6 @@ import { Client } from "@steempro/dsteem";
 const client = new Client([
   "https://api.steemit.com",
   "https://api.steemyy.com",
-  "https://rpc.amarbangla.net",
-  "https://steemapi.boylikegirl.club",
-  "https://api.steem-fanbase.com",
-  "https://api.steemitdev.com",
-  "https://api.steem.fans",
 ]);
 
 for await (const block of client.blockchain.getBlocks()) {
@@ -132,15 +120,7 @@ With ES2016 (node.js 7+):
 ```javascript
 const { Client } = require("@steempro/dsteem");
 
-const client = new Client([
-  "https://api.steemit.com",
-  "https://api.steemyy.com",
-  "https://rpc.amarbangla.net",
-  "https://steemapi.boylikegirl.club",
-  "https://api.steem-fanbase.com",
-  "https://api.steemitdev.com",
-  "https://api.steem.fans",
-]);
+const client = new Client(["https://api.upvu.org", "https://api.steemit.com"]);
 
 async function main() {
   const props = await client.database.getChainProperties();
