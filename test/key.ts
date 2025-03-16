@@ -12,7 +12,7 @@ describe('account_by_key_api', function() {
 
   it('get_key_references', async () => {
     const result = await client.keys.getKeyReferences(['TST65PUAPA4yC4RgPtGgsPupxT6yJtMhmT5JHFdsT3uoCbR8WJ25s'])
-    assert.deepEqual(result, {accounts: [['hiveio']]})
+    assert.deepEqual(result, {accounts: [['steem']]})
   })
 
 })

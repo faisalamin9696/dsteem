@@ -1,6 +1,6 @@
-# [dhive](https://github.com)
+# [dsteem](https://github.com)
 
-Robust hive client library that runs in both node.js and the browser.
+Robust steem client library that runs in both node.js and the browser.
 
 Needs test net urls, chain id
 
@@ -12,7 +12,7 @@ Needs test net urls, chain id
 
 ## Browser compatibility
 
-[![Build Status](https://saucelabs.com/browser-matrix/feruzm-dhive.svg)](https://saucelabs.com/open_sauce/user/feruzm-dhive)
+[![Build Status](https://saucelabs.com/browser-matrix/feruzm-dsteem.svg)](https://saucelabs.com/open_sauce/user/feruzm-dsteem)
 
 ## Installation
 
@@ -21,36 +21,40 @@ Needs test net urls, chain id
 For node.js or the browser with [browserify](https://github.com/substack/node-browserify) or [webpack](https://github.com/webpack/webpack).
 
 ```
-npm install @hiveio/dhive
+npm install @steempro/dsteem
 ```
 
 ### From cdn or self-hosted script
 
-Grab `dist/dhive.js` from git and include in your html:
+Grab `dist/dsteem.js` from git and include in your html:
 
 ```html
-<script src="@hiveio/dhive.js"></script>
+<script src="@steempro/dsteem.js"></script>
 ```
 
 Or from the [unpkg](https://unpkg.com) cdn:
 
 ```html
-<script src="https://unpkg.com/@hiveio/dhive@latest/dist/dhive.js"></script>
+<script src="https://unpkg.com/@steempro/dsteem@latest/dist/dsteem.js"></script>
 ```
 
-Make sure to set the version you want when including from the cdn, you can also use `dhive@latest` but that is not always desirable. See [unpkg.com](https://unpkg.com) for more information.
+Make sure to set the version you want when including from the cdn, you can also use `dsteem@latest` but that is not always desirable. See [unpkg.com](https://unpkg.com) for more information.
 
 ## Usage
 
 ### In the browser
 
 ```html
-<script src="https://unpkg.com/@hiveio/dhive@latest/dist/dhive.js"></script>
+<script src="https://unpkg.com/@steempro/dsteem@latest/dist/dsteem.js"></script>
 <script>
-  var client = new dhive.Client(["https://api.hive.blog", "https://api.hivekings.com", "https://anyx.io", "https://api.openhive.network"]);
+  var client = new dsteem.Client([
+    "https://api.steemit.com",
+    "https://api.steemyy.com",
+    "https://rpc.amarbangla.net",
+  ]);
   client.database
     .getDiscussions("trending", { tag: "writing", limit: 1 })
-    .then(function(discussions) {
+    .then(function (discussions) {
       document.body.innerHTML += "<h1>" + discussions[0].title + "</h1>";
       document.body.innerHTML += "<h2>by " + discussions[0].author + "</h2>";
       document.body.innerHTML +=
@@ -59,16 +63,20 @@ Make sure to set the version you want when including from the cdn, you can also 
 </script>
 ```
 
-See the [demo source](https://github.com/openhive-network/dhive/tree/master/examples/comment-feed) for an example on how to setup a livereloading TypeScript pipeline with [wintersmith](https://github.com/jnordberg/wintersmith) and [browserify](https://github.com/substack/node-browserify).
+See the [demo source](https://github.com/faisalamin9696/dsteem/tree/master/examples/comment-feed) for an example on how to setup a livereloading TypeScript pipeline with [wintersmith](https://github.com/jnordberg/wintersmith) and [browserify](https://github.com/substack/node-browserify).
 
 ### In node.js
 
 With TypeScript:
 
 ```typescript
-import { Client } from "@hiveio/dhive";
+import { Client } from "@steempro/dsteem";
 
-const client = new Client(["https://api.hive.blog", "https://api.hivekings.com", "https://anyx.io", "https://api.openhive.network"]);
+const client = new Client([
+  "https://api.steemit.com",
+  "https://api.steemyy.com",
+  "https://rpc.amarbangla.net",
+]);
 
 for await (const block of client.blockchain.getBlocks()) {
   console.log(`New block, id: ${block.block_id}`);
@@ -78,26 +86,30 @@ for await (const block of client.blockchain.getBlocks()) {
 With JavaScript:
 
 ```javascript
-var dhive = require("@hiveio/dhive");
+var dsteem = require("@steempro/dsteem");
 
-var client = new dhive.Client(["https://api.hive.blog", "https://api.hivekings.com", "https://anyx.io", "https://api.openhive.network"]);
-var key = dhive.PrivateKey.fromLogin("username", "password", "posting");
+var client = new dsteem.Client([
+  "https://api.steemit.com",
+  "https://api.steemyy.com",
+  "https://rpc.amarbangla.net",
+]);
+var key = dsteem.PrivateKey.fromLogin("username", "password", "posting");
 
 client.broadcast
   .vote(
     {
       voter: "username",
       author: "almost-digital",
-      permlink: "dhive-is-the-best",
-      weight: 10000
+      permlink: "dsteem-is-the-best",
+      weight: 10000,
     },
     key
   )
   .then(
-    function(result) {
+    function (result) {
       console.log("Included in block: " + result.block_num);
     },
-    function(error) {
+    function (error) {
       console.error(error);
     }
   );
@@ -106,9 +118,13 @@ client.broadcast
 With ES2016 (node.js 7+):
 
 ```javascript
-const { Client } = require("@hiveio/dhive");
+const { Client } = require("@steempro/dsteem");
 
-const client = new Client(["https://api.hive.blog", "https://api.hivekings.com", "https://anyx.io", "https://api.openhive.network"]);
+const client = new Client([
+  "https://api.steemit.com",
+  "https://api.steemyy.com",
+  "https://rpc.amarbangla.net",
+]);
 
 async function main() {
   const props = await client.database.getChainProperties();
@@ -122,17 +138,25 @@ main().catch(console.error);
 With node.js streams:
 
 ```javascript
-var dhive = require("@hiveio/dhive");
+var dsteem = require("@steempro/dsteem");
 var es = require("event-stream"); // npm install event-stream
 var util = require("util");
 
-var client = new dhive.Client(["https://api.hive.blog", "https://api.hivekings.com", "https://anyx.io", "https://api.openhive.network"]);
+var client = new dsteem.Client([
+  "https://api.steemit.com",
+  "https://api.steemyy.com",
+  "https://rpc.amarbangla.net",
+  "https://steemapi.boylikegirl.club",
+  "https://api.steem-fanbase.com",
+  "https://api.steemitdev.com",
+  "https://api.steem.fans",
+]);
 
 var stream = client.blockchain.getBlockStream();
 
 stream
   .pipe(
-    es.map(function(block, callback) {
+    es.map(function (block, callback) {
       callback(null, util.inspect(block, { colors: true, depth: null }) + "\n");
     })
   )
@@ -141,9 +165,9 @@ stream
 
 ## Bundling
 
-The easiest way to bundle dhive (with browserify, webpack etc.) is to just `npm install @hiveio/dhive` and `require('@hiveio/dhive')` which will give you well-tested (see browser compatibility matrix above) pre-bundled code guaranteed to JustWork™. However, that is not always desirable since it will not allow your bundler to de-duplicate any shared dependencies dhive and your app might have.
+The easiest way to bundle dsteem (with browserify, webpack etc.) is to just `npm install @steempro/dsteem` and `require('@steempro/dsteem')` which will give you well-tested (see browser compatibility matrix above) pre-bundled code guaranteed to JustWork™. However, that is not always desirable since it will not allow your bundler to de-duplicate any shared dependencies dsteem and your app might have.
 
-To allow for deduplication you can `require('@hiveio/dhive/lib/index-browser')`, or if you plan to provide your own polyfills: `require('@hiveio/dhive/lib/index')`. See `src/index-browser.ts` for a list of polyfills expected.
+To allow for deduplication you can `require('@steempro/dsteem/lib/index-browser')`, or if you plan to provide your own polyfills: `require('@steempro/dsteem/lib/index')`. See `src/index-browser.ts` for a list of polyfills expected.
 
 ---
 

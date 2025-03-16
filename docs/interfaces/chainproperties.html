@@ -3,8 +3,8 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>ChainProperties | @hiveio/dhive</title>
-	<meta name="description" content="">
+	<title>ChainProperties | @steempro/dsteem</title>
+	<meta name="description" content="Documentation for @steempro/dsteem">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
 </head>
@@ -13,7 +13,7 @@
 	<div class="tsd-page-toolbar">
 		<div class="container">
 			<div class="table-wrap">
-				<div class="table-cell" id="tsd-search" data-index="../assets/js/search.js" data-base="..">
+				<div class="table-cell" id="tsd-search" data-index="../assets/js/search.json" data-base="..">
 					<div class="field">
 						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
 						<input id="tsd-search-field" type="text" />
@@ -22,7 +22,7 @@
 						<li class="state loading">Preparing search index...</li>
 						<li class="state failure">The search index is not available</li>
 					</ul>
-					<a href="../index.html" class="title">@hiveio/dhive</a>
+					<a href="../index.html" class="title">@steempro/dsteem</a>
 				</div>
 				<div class="table-cell" id="tsd-widgets">
 					<div id="tsd-filter">
@@ -89,8 +89,8 @@
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="chainproperties.html#account_creation_fee" class="tsd-kind-icon">account_<wbr>creation_<wbr>fee</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="chainproperties.html#hbd_interest_rate" class="tsd-kind-icon">hbd_<wbr>interest_<wbr>rate</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="chainproperties.html#maximum_block_size" class="tsd-kind-icon">maximum_<wbr>block_<wbr>size</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="chainproperties.html#sbd_interest_rate" class="tsd-kind-icon">sbd_<wbr>interest_<wbr>rate</a></li>
 							</ul>
 						</section>
 					</div>
@@ -109,32 +109,17 @@
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>This fee, paid in HIVE, is converted into VESTING SHARES for the new account. Accounts
+							<p>This fee, paid in STEEM, is converted into VESTING SHARES for the new account. Accounts
 								without vesting shares cannot earn usage rations and therefore are powerless. This minimum
 								fee requires all accounts to have some kind of commitment to the network that includes the
 							ability to vote and make transactions.</p>
 						</div>
 						<dl class="tsd-comment-tags">
 							<dt>note</dt>
-							<dd><p>This has to be multiplied by STEEMIT ? <code>CREATE_ACCOUNT_WITH_HIVE_MODIFIER</code>
+							<dd><p>This has to be multiplied by STEEMIT ? <code>CREATE_ACCOUNT_WITH_STEEM_MODIFIER</code>
 								(defined as 30 on the main chain) to get the minimum fee needed to create an account.</p>
 							</dd>
 						</dl>
-					</div>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="hbd_interest_rate" class="tsd-anchor"></a>
-					<h3>hbd_<wbr>interest_<wbr>rate</h3>
-					<div class="tsd-signature tsd-kind-icon">hbd_<wbr>interest_<wbr>rate<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in chain/misc.ts:96</li>
-						</ul>
-					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>The HBD interest percentage rate decided by witnesses, expressed 0 to 10000.</p>
-						</div>
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
@@ -150,6 +135,21 @@
 						<div class="lead">
 							<p>This witnesses vote for the maximum_block_size which is used by the network
 							to tune rate limiting and capacity.</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="sbd_interest_rate" class="tsd-anchor"></a>
+					<h3>sbd_<wbr>interest_<wbr>rate</h3>
+					<div class="tsd-signature tsd-kind-icon">sbd_<wbr>interest_<wbr>rate<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in chain/misc.ts:96</li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The SBD interest percentage rate decided by witnesses, expressed 0 to 10000.</p>
 						</div>
 					</div>
 				</section>
@@ -174,10 +174,10 @@
 								<a href="chainproperties.html#account_creation_fee" class="tsd-kind-icon">account_<wbr>creation_<wbr>fee</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="chainproperties.html#hbd_interest_rate" class="tsd-kind-icon">hbd_<wbr>interest_<wbr>rate</a>
+								<a href="chainproperties.html#maximum_block_size" class="tsd-kind-icon">maximum_<wbr>block_<wbr>size</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="chainproperties.html#maximum_block_size" class="tsd-kind-icon">maximum_<wbr>block_<wbr>size</a>
+								<a href="chainproperties.html#sbd_interest_rate" class="tsd-kind-icon">sbd_<wbr>interest_<wbr>rate</a>
 							</li>
 						</ul>
 					</li>
@@ -215,6 +215,5 @@
 </div>
 <div class="overlay"></div>
 <script src="../assets/js/main.js"></script>
-<script>if (location.protocol == 'file:') document.write('<script src="../assets/js/search.js"><' + '/script>');</script>
 </body>
 </html>

@@ -20,7 +20,7 @@ lib: $(SRC_FILES) node_modules
 
 dist/%.js: lib
 	browserify $(filter-out $<,$^) --debug --full-paths \
-		--standalone dhive --plugin tsify \
+		--standalone dsteem --plugin tsify \
 		--transform [ babelify --extensions .ts ] \
 		| derequire > $@
 	terser $@ \
@@ -28,16 +28,16 @@ dist/%.js: lib
 		--compress "dead_code,collapse_vars,reduce_vars,keep_infinity,drop_console,passes=2" \
 		--output $@ || rm $@
 
-dist/dhive.js: src/index-browser.ts
+dist/dsteem.js: src/index-browser.ts
 
-dist/dhive.d.ts: $(SRC_FILES) node_modules
-	dts-generator --name dhive --project . --out dist/dhive.d.ts
-	perl -i -pe"s@'dhive/index'@'dhive'@g" dist/dhive.d.ts
+dist/dsteem.d.ts: $(SRC_FILES) node_modules
+	dts-generator --name dsteem --project . --out dist/dsteem.d.ts
+	perl -i -pe"s@'dsteem/index'@'dsteem'@g" dist/dsteem.d.ts
 
-dist/%.gz: dist/dhive.js
+dist/%.gz: dist/dsteem.js
 	gzip -9 -f -c $(basename $@) > $(basename $@).gz
 
-bundle: dist/dhive.js.gz dist/dhive.d.ts
+bundle: dist/dsteem.js.gz dist/dsteem.d.ts
 
 .PHONY: coverage
 coverage: node_modules
@@ -53,12 +53,12 @@ ci-test: node_modules
 	nyc -r lcov -e .ts -i ts-node/register mocha --exit --reporter tap --require ts-node/register test/*.ts
 
 .PHONY: browser-test
-browser-test: dist/dhive.js
+browser-test: dist/dsteem.js
 	BUILD_NUMBER="$$(git rev-parse --short HEAD)-$$(date +%s)" \
 		karma start test/_karma-sauce.js
 
 .PHONY: browser-test-local
-browser-test-local: dist/dhive.js
+browser-test-local: dist/dsteem.js
 	karma start test/_karma.js
 
 .PHONY: lint
@@ -71,7 +71,7 @@ node_modules:
 docs: $(SRC_FILES) node_modules
 	typedoc --gitRevision master --target ES6 --mode file --out docs src
 	find docs -name "*.html" | xargs perl -i -pe's~$(shell pwd)~.~g'
-	echo "Served at <https://openhive-network.github.io/dhive>" > docs/README.md
+	echo "Served at <https://github.com/faisalamin9696/dsteem>" > docs/README.md
 	touch docs
 
 .PHONY: clean

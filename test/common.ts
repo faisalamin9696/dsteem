@@ -1,13 +1,12 @@
 import * as fs from "fs";
 import * as https from "https";
 import { randomBytes } from "crypto";
-import fetch from "cross-fetch";
 import { Client, PrivateKey } from './../src'
 
 export const NUM_TEST_ACCOUNTS = 2;
 export const IS_BROWSER = global["isBrowser"] === true;
 export const TEST_NODE =
-  process.env["TEST_NODE"] || "https://api.hive.blog";
+  process.env["TEST_NODE"] || "https://api.steemit.com";
 
 export const agent = IS_BROWSER
   ? undefined
@@ -52,7 +51,7 @@ export async function createAccount(): Promise<{
   password: string;
 }> {
   const password = randomString(32);
-  const username = `dhive-${randomString(9)}`;
+  const username = `dsteem-${randomString(9)}`;
 
   // Create testnet account and delegate to it
   const client = Client.testnet({ agent });
@@ -84,7 +83,7 @@ export async function createAccount(): Promise<{
     memo: 'test acc'
   }, key)
   // TESTNET URL NEEDED
-  // const response = await fetch("https://hive-test-beeabode.roelandp.nl", {
+  // const response = await fetch("https://steem-test-beeabode.roelandp.nl", {
   //   method: "POST",
   //   body: `username=${username}&password=${password}`,
   //   headers: { "Content-Type": "application/x-www-form-urlencoded" }

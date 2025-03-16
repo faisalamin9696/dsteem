@@ -276,7 +276,7 @@ config.set({
     captureTimeout: 0,
     browserNoActivityTimeout: 1000 * 60 * 5,
     sauceLabs: {
-        testName: 'hiveio/dhive',
+        testName: 'faisalamin9696/dsteem',
         connectOptions: {tunnelDomains: 'localhost,127.0.0.1'}
     },
     concurrency: 5,

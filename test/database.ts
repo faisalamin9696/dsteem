@@ -64,12 +64,12 @@ describe("database api", function() {
 
   it("getConfig", async function() {
     const result = await client.database.getConfig();
-    // HIVE_ config stuff here
-    const r = (key: string) => result["HIVE_" + key];
+    // STEEM_ config stuff here
+    const r = (key: string) => result["STEEM_" + key];
     serverConfig = result;
     // also test some assumptions made throughout the code
     const conf = await liveClient.database.getConfig();
-    assert.equal(r("CREATE_ACCOUNT_WITH_HIVE_MODIFIER"), 30);
+    assert.equal(r("CREATE_ACCOUNT_WITH_STEEM_MODIFIER"), 30);
     assert.equal(r("CREATE_ACCOUNT_DELEGATION_RATIO"), 5);
     assert.equal(r("100_PERCENT"), 10000);
     assert.equal(r("1_PERCENT"), 100);
@@ -87,7 +87,7 @@ describe("database api", function() {
   it("getBlock", async function() {
     const result = await client.database.getBlock(1);
     assert.equal("0000000000000000000000000000000000000000", result.previous);
-    assert.equal(serverConfig["HIVE_INIT_PUBLIC_KEY_STR"], result.signing_key);
+    assert.equal(serverConfig["STEEM_INIT_PUBLIC_KEY_STR"], result.signing_key);
   });
 
   it("getOperations", async function() {
@@ -125,13 +125,13 @@ describe("database api", function() {
 
   it("getChainProperties", async function() {
     const props = await liveClient.database.getChainProperties();
-    assert.equal(Asset.from(props.account_creation_fee).symbol, "HIVE");
+    assert.equal(Asset.from(props.account_creation_fee).symbol, "STEEM");
   });
 
   it("getCurrentMedianHistoryPrice", async function() {
     const price = await liveClient.database.getCurrentMedianHistoryPrice();
-    assert.equal(Asset.from(price.base).symbol, "HBD");
-    assert.equal(price.quote.symbol, "HIVE");
+    assert.equal(Asset.from(price.base).symbol, "SBD");
+    assert.equal(price.quote.symbol, "STEEM");
   });
 
   // this tests for delegations from the steem account

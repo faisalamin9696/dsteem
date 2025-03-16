@@ -20,13 +20,13 @@ describe("HivemindAPI", function () {
     })
 
     it('getCommunity', async () => {
-        const r = await liveClient.hivemind.getCommunity({ name: 'hive-148441', observer: '' })
+        const r = await liveClient.hivemind.getCommunity({ name: 'hive-160125', observer: '' })
         // console.log('community', r)
         //assert.equal(r.length, 1)
     })
 
     it('getAccountNotifications', async () => {
-        const r = await liveClient.hivemind.getAccountNotifications({ account: 'acidyo', limit: 2 })
+        const r = await liveClient.hivemind.getAccountNotifications({ account: 'faisalamin', limit: 2 })
         // console.log('notifies', r)
         //assert.equal(r.length, 1)
     })
@@ -37,7 +37,7 @@ describe("HivemindAPI", function () {
     })
 
     it('listAllSubscriptions', async () => {
-        const r = await liveClient.hivemind.listAllSubscriptions({ account: 'acidyo' })
+        const r = await liveClient.hivemind.listAllSubscriptions({ account: 'faisalamin' })
         // console.log('subscriptions', r)
         //assert.equal(r.length, 1)
     })

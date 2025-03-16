@@ -11,9 +11,9 @@ describe("client", function() {
   const client = Client.testnet();
   const aclient = client as any;
 
-  // TODO: change api.hive.blog to testnet
+  // TODO: change api.steemit.com to testnet
   it('should handle failover', async () => {
-    const bclient = new Client(['https://wrongapi.hive.blog', 'https://hive-test-beeabode.roelandp.nl'], {timeout: 1000})
+    const bclient = new Client(['https://wrongapi.steemit.com', 'https://steem-test-beeabode.roelandp.nl'], {timeout: 1000})
     const result = await bclient.call('condenser_api', 'get_accounts', [['initminer']])
     assert.equal(result.length, 1);
     assert.equal(result[0].name, "initminer");
@@ -67,7 +67,7 @@ describe("client", function() {
   // it("should retry and timeout", async function() {
   //   this.slow(2500);
   //   aclient.timeout = 1000;
-  //   aclient.address = "https://jnordberg.github.io/dhive/FAIL";
+  //   aclient.address = "https://jnordberg.github.io/dsteem/FAIL";
   //   const backoff = aclient.backoff;
   //   let seenBackoff = false;
   //   aclient.backoff = tries => {

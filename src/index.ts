@@ -1,5 +1,5 @@
 /**
- * @file dhive exports.
+ * @file dsteem exports.
  * @author Johan Nordberg <code@johan-nordberg.com>
  * @license
  * Copyright (c) 2017 Johan Nordberg. All Rights Reserved.
@@ -51,7 +51,6 @@ export * from './chain/operation'
 export * from './chain/serializer'
 export * from './chain/transaction'
 export * from './chain/hivemind'
-
 export * from './client'
 export * from './crypto'
 export * from './memo'

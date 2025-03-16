@@ -1,5 +1,5 @@
 /**
- * @file dhive entry point for browsers.
+ * @file dsteem entry point for browsers.
  * @author Johan Nordberg <code@johan-nordberg.com>
  * @license
  * Copyright (c) 2017 Johan Nordberg. All Rights Reserved.

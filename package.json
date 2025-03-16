@@ -1,14 +1,14 @@
 {
-  "name": "@hiveio/dhive",
-  "version": "1.3.2",
-  "description": "Hive blockchain RPC client library",
-  "author": "hive-network",
+  "name": "@steempro/dsteem",
+  "version": "1.0.3",
+  "description": "Steem blockchain RPC client library",
+  "author": "steem-network",
   "license": "BSD-3-Clause-No-Military-License",
   "main": "./lib/index-node",
   "typings": "./lib/index",
   "browser": {
-    "./lib/index-node": "./dist/dhive.js",
-    "./src/index-node": "./dist/dhive.js",
+    "./lib/index-node": "./dist/dsteem.js",
+    "./src/index-node": "./dist/dsteem.js",
     "./src/version": "./lib/version.js"
   },
   "files": [
@@ -17,7 +17,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://gitlab.syncad.com/hive/dhive"
+    "url": "https://github.com/faisalamin9696/dsteem"
   },
   "scripts": {
     "lint": "make lint",
@@ -28,11 +28,11 @@
     "blockchain",
     "client",
     "rpc",
-    "hive",
-    "dhive"
+    "steem",
+    "dsteem"
   ],
   "dependencies": {
-    "@ecency/bytebuffer": "^6.0.0",
+    "@steempro/bytebuffer": "^6.0.0",
     "bigi": "^1.4.2",
     "bs58": "^4.0.1",
     "core-js": "^3.6.4",
