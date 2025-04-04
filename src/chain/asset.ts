@@ -58,22 +58,24 @@ export class Asset {
   /**
    * Create a new Asset instance from a string, e.g. `42.000 STEEM`.
    */
-  public static fromString(string: string, expectedSymbol?: AssetSymbol) {
-    const [amountString, symbol] = string.split(" ");
-    if (!["STEEM", "VESTS", "TESTS", "TBD", "SBD"].includes(symbol)) {
-      throw new Error(`Invalid asset symbol: ${symbol}`);
+  public static fromString = (str: string, expectedSymbol?: AssetSymbol) => {
+    const _a = str.split(" ");
+    const amountString = _a[0];
+    const symbol = _a[1];
+    if (!["VESTS", "TESTS", "TBD", "SBD", "STEEM"].includes(symbol)) {
+      throw new Error("Invalid asset symbol: " + symbol);
     }
     if (expectedSymbol && symbol !== expectedSymbol) {
       throw new Error(
-        `Invalid asset, expected symbol: ${expectedSymbol} got: ${symbol}`
+        "Invalid asset, expected symbol: " + expectedSymbol + " got: " + symbol
       );
     }
     const amount = Number.parseFloat(amountString);
     if (!Number.isFinite(amount)) {
-      throw new Error(`Invalid asset amount: ${amountString}`);
+      throw new Error("Invalid asset amount: " + amountString);
     }
     return new Asset(amount, symbol as AssetSymbol);
-  }
+  };
 
   /**
    * Convenience to create new Asset.

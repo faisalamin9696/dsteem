@@ -57,7 +57,7 @@ declare module 'dsteem/chain/asset' {
 	    /**
 	     * Create a new Asset instance from a string, e.g. `42.000 STEEM`.
 	     */
-	    static fromString(string: string, expectedSymbol?: AssetSymbol): Asset;
+	    static fromString: (str: string, expectedSymbol?: "VESTS" | "TESTS" | "TBD" | "STEEM" | "SBD" | undefined) => Asset;
 	    /**
 	     * Convenience to create new Asset.
 	     * @param symbol Symbol to use when created from number. Will also be used to validate
