@@ -57,7 +57,7 @@ declare module 'dsteem/chain/asset' {
 	    /**
 	     * Create a new Asset instance from a string, e.g. `42.000 STEEM`.
 	     */
-	    static fromString: (str: string, expectedSymbol?: "VESTS" | "TESTS" | "TBD" | "STEEM" | "SBD" | undefined) => Asset;
+	    static fromString(string: string, expectedSymbol?: AssetSymbol): Asset;
 	    /**
 	     * Convenience to create new Asset.
 	     * @param symbol Symbol to use when created from number. Will also be used to validate
@@ -2919,7 +2919,7 @@ declare module 'dsteem/client' {
 
 }
 declare module 'dsteem/chain/deserializer' {
-	import * as ByteBuffer from 'bytebuffer';
+	import * as ByteBuffer from "@steempro/bytebuffer";
 	export type Deserializer = (buffer: ByteBuffer) => void;
 	export const types: {
 	    EncryptedMemoD: any;

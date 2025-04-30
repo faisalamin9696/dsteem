@@ -1,6 +1,6 @@
 import 'mocha'
 import * as assert from 'assert'
-import * as ByteBuffer from 'bytebuffer'
+import * as ByteBuffer from "@steempro/bytebuffer";
 
 import {Types, Serializer, HexBuffer} from './../src'
 

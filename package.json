@@ -1,6 +1,6 @@
 {
   "name": "@steempro/dsteem",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Steem blockchain RPC client library",
   "author": "steem-network",
   "license": "BSD-3-Clause-No-Military-License",
