@@ -304,12 +304,23 @@ export class Client {
     method: string,
     params: any = []
   ): Promise<any> {
-    const request: RPCCall = {
-      id: "0",
-      jsonrpc: "2.0",
-      method: "call",
-      params: [api, method, params],
-    };
+
+     let request: RPCCall;
+    if (api === "bridge") {
+      request = {
+        id: 0,
+        jsonrpc: "2.0",
+        method: api + "." + method,
+        params,
+      };
+    } else {
+      request = {
+        id: "0",
+        jsonrpc: "2.0",
+        method: "call",
+        params: [api, method, params],
+      };
+    }
     const body = JSON.stringify(request, (key, value) => {
       // encode Buffers as hex strings instead of an array of bytes
       if (value && typeof value === "object" && value.type === "Buffer") {
